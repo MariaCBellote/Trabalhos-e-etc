@@ -79,4 +79,41 @@ constraint empresa_id foreign key(id_empresa) references empresa(id_empresa)
 
 );
 
+create table if not exists empresa_exame(
+id_empresa int,
+id_exame int,
+primary key(id_empresa,id_exame),
+constraint exameid foreign key(id_exame) references exame(id_exame),
+constraint emp_id foreign key(id_empresa) references empresa(id_empresa)
+);
+
+create table if not exists funcionario_exame(
+id_exame int,
+id_funcionario int,
+primary key(id_exame,id_funcionario),
+constraint exameid foreign key(id_exame) references exame(id_exame),
+constraint func_id foreign key(id_funcionario) references funcionario(id_funcionario)
+);
+
+create table if not exists exame_atestado(
+id_exame int,
+id_atestado int,
+primary key(id_exame,id_atestado),
+constraint exameid foreign key(id_exame) references exame(id_exame),
+constraint atest_id foreign key(id_atestado) references atestado(id_atestado)
+);
+
+create table if not exists cargo_riscopa(
+id_cargo int,
+id_riscos int,
+primary key(id_cargo,id_riscos),
+constraint cargo_id foreign key(id_cargo) references cargo(id_cargo),
+constraint riscos_id foreign key(id_riscos) references riscos_ocupacionais(id_riscos)
+);
+
+
+
+
+
+
 
