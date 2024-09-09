@@ -16,6 +16,9 @@ int main()
   for(n=0;n<50;n++)
   {
       printf("Digite o preço da mercadoria(R$) %i: ",n+1); scanf("%f",&mercadoria);
+    if(mercadoria<0)
+      printf("Somente valores positivos são válidos\n");
+    else{
       reajuste=mercadoria*0.05;
       mercadoria=mercadoria+reajuste;
       if(reajuste>25.50)
@@ -24,6 +27,7 @@ int main()
          mercadoria=mercadoria-diminuicao;
       }
       printf("Preço reajustado %i: %.2fR$\n",n+1,mercadoria);
+  }
   }
        
     return 0;
