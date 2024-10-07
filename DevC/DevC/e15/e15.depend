@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1727304267 source:c:\devc\e15\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
