@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1730249240 source:c:\devc\verificadoremail\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+
