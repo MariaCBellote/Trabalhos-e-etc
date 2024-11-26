@@ -27,7 +27,7 @@ void nome_sigla(char *nome, char *sigla){
 int i,f=0;
 for(i=0; i<strlen(nome);i++)
 {
-if(!e_preposicao)
+if(!e_preposicao(nome))
 {
     if(nome[i]==' ')
     {
@@ -53,14 +53,14 @@ for(i=0;i<strlen(sigla);i++)
 }
 }
 int e_preposicao(const char *palavra) {
-    // Preposições que devem ser ignoradas
+    // PreposiÃ§Ãµes que devem ser ignoradas
     const char *preposicoes[] = {"da", "de", "di", "do", "du","dos"};
     int i;
 
     for (i = 0; i < 5; i++) {
         if (strcmp(palavra, preposicoes[i]) == 0) {
-            return 1;  // Se for uma preposição, retorna 1
+            return 1;  // Se for uma preposiÃ§Ã£o, retorna 1
         }
     }
-    return 0;  // Caso contrário, retorna 0
+    return 0;  // Caso contrÃ¡rio, retorna 0
 }
