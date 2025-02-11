@@ -1,0 +1,60 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    Scanner scan= new Scanner(System.in);
+	    int opcao;
+	    System.out.printf("\tMENU\n");
+	    System.out.println("------------------------");
+	    System.out.println("Escolha uma das opcões:");
+		System.out.printf("Adição[1]\t");
+		System.out.printf("Subtração[2]\t");
+	    System.out.printf("Multiplicação[3]\t");
+	    System.out.printf("Divisão[4]\t");
+	    System.out.printf("Sair[0]\t\n");
+	     opcao= scan.nextInt();
+	    
+	     scan.close();
+	     if(opcao>=0 && opcao<5)
+	     {
+	        System.out.printf("A opção esolhida foi: %d\n", opcao);
+	        if(opcao==0)
+	        {
+	            System.out.printf("Encerrado\n");
+	        }
+	        else if(opcao==1)
+	        {
+	            System.out.printf("Adição\n");
+	        }
+	        else if(opcao==2)
+	        {
+	            System.out.printf("Subtração\n");
+	        }
+	        else if(opcao==3)
+	        {
+	            System.out.printf("Multiplicação\n");
+	        }
+	        else{
+	            System.out.printf("Divisão\n"); 
+	        }
+	     }
+	     else{
+	          System.out.println("Opção inválida.");
+	     }
+	    
+	
+	
+	
+	
+		
+	}
+}
