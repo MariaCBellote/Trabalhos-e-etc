@@ -5,14 +5,19 @@ public class Main
 	public static void main(String[] args) {
 	   
 	    Scanner scan= new Scanner(System.in);
+	   
 	    int opcao;
+	    float a=0;
+	    float b=0;
+	    float r=0;
+	    
 	    do{
 	        System.out.println(" ");
 	        System.out.println("==============================================================================");
     	        System.out.printf("\tMENU\n");
     	        System.out.println("-------------------------------------------------------------------------------");
     	        System.out.println("Escolha uma das opcões:");
-    		System.out.printf("[1]ADIÇÃO \n");
+    	        System.out.printf("[1]ADIÇÃO \n");
     		System.out.printf("[2]SUBTRAÇÃO \n");
     	        System.out.printf("[3]MULTIPLICAÇÂO \n");
     	        System.out.printf("[4]DIVISÃO \n");
@@ -22,29 +27,62 @@ public class Main
     	    
     
     	        System.out.printf("A opção esolhida foi: %d\n", opcao);
-    	     
+    	        if(opcao>=1 && opcao<=4){
+    	            do{
+    	             System.out.println("Escolha o primeiro numero:");
+    	             if(scan.hasNextFloat()){
+    	             a = scan.nextFloat();
+    	             break; 
+    	             }
+    	             else{
+    	               System.out.println("Opção inválida.");
+    	               scan.next();
+    	             }
+    	            }while(true);
+    	            
+    	            do{
+    	             System.out.println("Escolha o segundo numero: ");
+    	             if(scan.hasNextFloat()){
+    	             b = scan.nextFloat();
+    	             break;
+    	             }
+    	             else{
+    	                 System.out.println("Opção inválida.");
+    	                 scan.next();
+    	             }
+    	                
+    	            }while(true);
+    	             
+    	        }
+    	       
+    	        
     	     switch(opcao)
     	     {
     	         case 0: System.out.printf("Encerrado\n");
     	         break;
     	         
     	         case 1: System.out.printf("Adição\n");
+    	         r = a + b;
     	         break;
     	         
     	         case 2: System.out.printf("Subtração\n");
+    	         r=a-b;
     	         break;
     	         
     	         case 3: System.out.printf("Multiplicação\n");
+    	         r=a*b;
     	         break;
     	         
     	         case 4: System.out.printf("Divisão\n"); 
+    	         r=a/b;
     	         break;
     	         
     	         default:System.out.println("Opção inválida.");
     	         break;
     	             
     	     }
-	    
+    	     
+	    System.out.println("Resultado:"+r);
 	    }
 	    while(opcao!=0);
 	   scan.close();
