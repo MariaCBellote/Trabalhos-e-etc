@@ -2,6 +2,24 @@
 import java.util.Scanner;
 public class Main
 {
+   public static float soma(float a, float b) 
+   {
+       return a+b;
+   }
+     public static float subtracao(float a, float b) 
+   {
+       return a-b;
+   }
+     public static float multiplicacao(float a, float b) 
+   {
+       return a*b;
+   }
+     public static float divisao(float a, float b) 
+   {
+       return a/b;
+       
+   }
+    
 	public static void main(String[] args) {
 	   
 	    Scanner scan= new Scanner(System.in);
@@ -42,7 +60,7 @@ public class Main
     	            
     	            do{
     	             System.out.println("Escolha o segundo numero: ");
-    	             if(scan.hasNextFloat()){
+    	            if(scan.hasNextFloat()){
     	             b = scan.nextFloat();
     	             break;
     	             }
@@ -62,19 +80,28 @@ public class Main
     	         break;
     	         
     	         case 1: System.out.printf("Adição\n");
-    	         r = a + b;
+    	         r = soma(a,b);
+    	         System.out.println("Resultado:"+r);
     	         break;
     	         
     	         case 2: System.out.printf("Subtração\n");
-    	         r=a-b;
+    	         r=subtracao(a,b);
+    	         System.out.println("Resultado:"+r);
     	         break;
     	         
     	         case 3: System.out.printf("Multiplicação\n");
-    	         r=a*b;
+    	         r=multiplicacao(a,b);
+    	         System.out.println("Resultado:"+r);
     	         break;
     	         
     	         case 4: System.out.printf("Divisão\n"); 
-    	         r=a/b;
+    	         if(b==0){
+    	             System.out.println("Não é possivel dividir numeros por zero");
+    	         }
+    	         else{
+    	         r=divisao(a,b);
+    	         System.out.println("Resultado:"+r);
+    	         }
     	         break;
     	         
     	         default:System.out.println("Opção inválida.");
@@ -82,7 +109,7 @@ public class Main
     	             
     	     }
     	     
-	    System.out.println("Resultado:"+r);
+	    
 	    }
 	    while(opcao!=0);
 	   scan.close();
