@@ -1,0 +1,49 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.mavenproject1;
+
+/**
+ *
+ * @author alunolab08
+ */
+import java.util.Scanner;
+public class Mavenproject1 {
+
+    public static void main(String[] args) {
+        Scanner scan= new Scanner(System.in);
+        System.out.println("Conta!");
+        int opcao;
+        double saque,deposito;
+        Conta c = new Conta();
+        System.out.println("Digite o numero de sua conta: ");
+        c.numero=scan.nextInt();
+        System.out.println("Nome: ");
+        c.nome=scan.next();
+        System.out.println("Digite o limite de sua conta: ");
+        c.limite=scan.nextDouble();
+        System.out.println("Digite o saldo de sua conta: ");
+        c.saldo=scan.nextDouble();
+        System.out.println(" Sair (0),Saque(1) ou deposito(2): ");
+        opcao= scan.nextInt();
+        
+        switch(opcao)
+        {
+            case 0: System.out.println("Saindo!");
+            break;
+            case 1: System.out.println("Quanto deseja sacar?");
+            saque=scan.nextDouble();
+            c.Sacar(saque);
+           System.out.println("Saldo:"+c.saldo);
+            break;
+            case 2:System.out.println("Quanto quer depositar?");
+            deposito=scan.nextDouble();
+            c.Depositar(deposito);
+            System.out.println("Saldo:"+c.saldo);
+            break;
+            default: System.out.println("Invalido!");
+            break;
+        }
+}
+}
