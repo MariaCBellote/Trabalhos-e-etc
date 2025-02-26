@@ -15,7 +15,16 @@ public class Conta {
     
     public void sacar(double valor)
     {
+        if(saldo<valor)
+        {
+            System.out.println("Saldo insuficiente!!!!!");
+            System.out.println("SAQUE NEGADO!");
+            
+        }
+        else{
         saldo= saldo-valor;
+        
+        }
     }
     public void depositar(double valor){
         saldo=saldo+valor;
