@@ -17,15 +17,19 @@ public class ProjJava2 {
         System.out.println("------");
         int opcao;
         double saque,deposito,s=0,saldoVelho=0;
-        Conta c = new Conta();
-        System.out.println("Digite o numero de sua conta: ");
-        c.numero=scan.nextInt();
-        System.out.println("Nome: ");
-        c.nome=scan.next();
-        System.out.println("Digite o limite de sua conta: ");
-        c.limite=scan.nextDouble();
-        System.out.println("Digite o saldo de sua conta: ");
-        c.saldo=scan.nextDouble();
+    Conta c1= new Conta();
+    c1.numero=10;
+    c1.saldo=2000;
+    c1.limite=1000;
+    
+        Cliente cli1= new Cliente();
+        c1.titular=cli1;
+        cli1.perguntar();
+        
+        Cliente cli2= new Cliente();
+        cli2.perguntar();
+        cli1.casar(cli2);
+        
         do
         {
         System.out.println(" (0)SAIR (1)SAQUE ou (2)DEPOSITO: ");
@@ -39,26 +43,26 @@ public class ProjJava2 {
             saque=scan.nextDouble();
             s= saque+s;
                     
-            if(s>c.limite)
+            if(s>c1.limite)
             {
                 System.out.println("Você ultrapassou o limite da sua conta!");
                 System.out.println("SAQUE NEGADO!");
             }
             else{
-               saldoVelho=c.saldo;
-               c.sacar(saque); 
+               saldoVelho=c1.saldo;
+               c1.sacar(saque); 
             }
             System.out.println("======================");
-            System.out.println("Saldo Atual:"+c.saldo);
+            System.out.println("Saldo Atual:"+c1.saldo);
             System.out.println("Saldo Anterior:"+saldoVelho);
             System.out.println("======================");
             break;
             case 2:System.out.println("Quanto quer depositar?");
             deposito=scan.nextDouble();
-            saldoVelho=c.saldo;
-            c.depositar(deposito);
+            saldoVelho=c1.saldo;
+            c1.depositar(deposito);
             System.out.println("======================");
-            System.out.println("Saldo:"+c.saldo);
+            System.out.println("Saldo:"+c1.saldo);
             System.out.println("Saldo Anterior:"+saldoVelho);
             System.out.println("======================");
             break;

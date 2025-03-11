@@ -10,8 +10,9 @@ package com.mycompany.projjava2;
  */
 public class Conta {
     int numero;
-    String nome;
     double saldo, limite;
+    Cliente titular;
+    
     
     public void sacar(double valor)
     {
