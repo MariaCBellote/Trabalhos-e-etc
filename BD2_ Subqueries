@@ -1,0 +1,43 @@
+use sakila;
+-- Subqueries!!!!--
+-- Retorna todos os valores maiores que a media de todos os valores--
+select amount, customer_id from payment
+where amount > (
+      select avg(amount) 
+      from payment); 
+      
+-- Retorna os nomes dos clientes que possum o mesmo valor maximo pago do cliente de id 1, sem repetição--
+select  distinct concat(c.first_name," ", c.last_name) name, p.amount from payment p
+join customer c on c.customer_id= p.customer_id
+where amount =(
+select max(amount) maximo from payment 
+where customer_id=1) ;   
+
+-- Retorna quantidade de compras feitas por cada cliente, desde que tenham sido acima de 35--
+SELECT 
+    CONCAT(c.first_name, " ", c.last_name) AS name, 
+    COUNT(p.payment_id) AS quantidade_compras
+FROM customer c
+JOIN payment p ON p.customer_id = c.customer_id
+GROUP BY c.customer_id
+HAVING quantidade_compras > 35;
+
+select * from customer
+where customer_id in(
+select  count(payment_id) compras_feitas
+from payment
+group by customer_id
+having count(payment_id)>35);
+
+
+
+
+
+
+
+  
+
+
+      
+      
+      
