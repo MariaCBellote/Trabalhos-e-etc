@@ -1,0 +1,10 @@
+use pratica;
+select distinct concat(i.fname, " ", i.lname) nome, nascimento.data, c.city 
+from individual i,customer c, 
+(select  MIN(ii.birth_date) OVER (PARTITION BY cc.city)  data, cc.city
+from  individual ii, customer cc
+where cc.cust_id= ii.cust_id
+) nascimento
+where c.cust_id= i.cust_id
+and c.city= nascimento.city
+AND i.birth_date = nascimento.data; 
