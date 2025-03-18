@@ -8,3 +8,6 @@ where cc.cust_id= ii.cust_id
 where c.cust_id= i.cust_id
 and c.city= nascimento.city
 AND i.birth_date = nascimento.data; 
+
+select  name from product 
+order by SUBSTRING_INDEX(name,' ',-1);
