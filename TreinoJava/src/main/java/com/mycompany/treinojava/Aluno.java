@@ -17,8 +17,9 @@ public class Aluno {
     
     public Aluno(String nome, String curso, String turma, int periodo, double nota1,double nota2 ){
       //susbstring(x,y): pega a substring do indice x até y(nao inclui y), ou seja, com toUpper somente o 0 fica maiúsculo.
-      //o substring(x)imprimira a palavra do indice x até o final( nesse caso vai pegar o resto da string do indice 1 ao finalm n incluindo o 0 para continuar maiusculo.
-        this.nome=nome.substring(0, 1).toUpperCase().substring(1);
+      //o substring(x)imprimira a palavra do indice x até o final( nesse caso vai pegar o resto da string do indice 1 ao finalm NÃO incluindo o 0 para continuar maiusculo.
+      // por isso concatenamso com o resrto da palavra.
+      this.nome=nome.substring(0, 1).toUpperCase()+nome.substring(1);
         this.curso=curso;
         this.turma=turma;
         this.periodo=periodo;
