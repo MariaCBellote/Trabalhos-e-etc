@@ -6,11 +6,19 @@ package com.mycompany.treinojava;
 
 /**
  *
- * @author alunolab11
+ * @author Usuario
  */
+import java.util.Scanner;
 public class TreinoJava {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       
+       Aluno aluno1= Aluno.perguntar();
+       aluno1.mostrar();
+       Aluno aluno2=Aluno.perguntar() ;
+       aluno2.mostrar();
+       Aluno aluno3= Aluno.perguntar();
+       aluno1.mostrar();
+       Aluno.quantidadeAlunos();
     }
 }
