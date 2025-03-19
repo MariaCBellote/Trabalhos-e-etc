@@ -6,9 +6,8 @@ package com.mycompany.treinojava;
 
 /**
  *
- * @author Usuario
+ * @author alunolab08
  */
-import java.util.Scanner;
 public class TreinoJava {
 
     public static void main(String[] args) {
@@ -22,3 +21,5 @@ public class TreinoJava {
        Aluno.quantidadeAlunos();
     }
 }
+
+

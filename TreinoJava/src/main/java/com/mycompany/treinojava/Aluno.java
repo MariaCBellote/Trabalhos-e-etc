@@ -4,16 +4,19 @@
  */
 package com.mycompany.treinojava;
 
+/**
+ *
+ * @author alunolab08
+ */
 import java.util.Scanner;
 import java.util.Random;
 import java.time.Year;
 public class Aluno {
-    String nome,curso,turma;
+    private String nome,curso,turma;
     private String matricula;
-    int periodo;
+    private int periodo;
     private double nota1,nota2,notaFinal;
-    static int alunos= 0;
-    
+    private static int alunos= 0;
     
     public Aluno(String nome, String curso, String turma, int periodo, double nota1,double nota2 ){
       //susbstring(x,y): pega a substring do indice x até y(nao inclui y), ou seja, com toUpper somente o 0 fica maiúsculo.
@@ -29,6 +32,67 @@ public class Aluno {
         alunos++;
         this.gerarMatricula();
     }
+//Getters
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public String getTurma() {
+        return turma;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public double getNota1() {
+        return nota1;
+    }
+
+    public double getNota2() {
+        return nota2;
+    }
+
+    public double getNotaFinal() {
+        return notaFinal;
+    }
+
+    public static int getAlunos() {
+        return alunos;
+    }
+//Setters
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public void setTurma(String turma) {
+        this.turma = turma;
+    }
+
+    public void setNota1(double nota1) {
+        this.nota1 = nota1;
+    }
+
+    public void setNota2(double nota2) {
+        this.nota2 = nota2;
+    }
+    
+    
+    
+    
+
     //printa a quantidade de alunos.
     //precisa ser static para ser chamada sem instancia na main.
     public static void quantidadeAlunos(){
@@ -37,11 +101,16 @@ public class Aluno {
     
   //passa o aluno de semestre.  
    public void passar(){
+    Scanner scan= new Scanner(System.in); 
     this.periodo++;
+    System.out.println("Digite sua nova turma: ");
+    String turma=scan.nextLine();
+    this.turma= turma;
+    
 }
    
    //gera uma matricula com data e um numero aleatório.
-   public void gerarMatricula(){
+   private void gerarMatricula(){
        Random rand= new Random();
        
        int numero= rand.nextInt(10000);
@@ -59,6 +128,8 @@ public class Aluno {
          System.out.println("Você passou!");
          passar();
          System.out.println("Periodo atual: "+ this.periodo);
+          System.out.println("Turma atual: "+ this.turma);
+         
        }
        else if(this.notaFinal>=3 && this.notaFinal<7)
        {
@@ -96,6 +167,7 @@ public class Aluno {
        double nota1=scan.nextDouble();
        System.out.println("Digite a nota do segundo bimestre: "); 
        double nota2=scan.nextDouble();
+       
        
        //retorna o construtor, já realizando a isntancia.
        return new Aluno(nome,curso,turma,periodo,nota1,nota2);
