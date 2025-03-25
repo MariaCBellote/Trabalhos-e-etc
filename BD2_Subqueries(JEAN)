@@ -11,3 +11,36 @@ AND i.birth_date = nascimento.data;
 
 select  name from product 
 order by SUBSTRING_INDEX(name,' ',-1);
+
+select fname, lname from individual
+union 
+select fname,lname from employee;
+
+select name from business
+union 
+select concat(fname," ",lname) name from individual;
+
+select emp_id from employee
+intersect
+select superior_emp_id from employee;
+
+SELECT city from customer
+except
+select city from branch;
+
+-- fazem a mesma coisa, porém utilizando left join+null para retirar as citys em comum.
+
+select distinct customer.city from customer 
+left join branch on customer.city=branch.city
+where branch.city is null;
+
+
+select emp_id FROM employee
+ except
+ SELECT superior_emp_id from employee;
+
+
+select emp_id, concat(fname," ",lname) from employee
+intersect
+select superior_emp_id,  concat(fname," ",lname) from employee
+order by emp_id asc;
