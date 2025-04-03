@@ -67,3 +67,35 @@ using(cust_id) where concat(e.fname," ", e.lname) ="Michael Smith";
 select name,fname, lname from branch b
 join customer c on b.city!=c.city
 join individual using(cust_id);
+
+
+select account_id,name,fed_id,birth_date
+from product join account
+using (product_cd)
+join customer
+using(cust_id)
+join individual
+using (cust_id);
+
+select e.emp_id, e.fname, e.lname from employee e
+join employee ee
+on e.superior_emp_id = ee.emp_id
+where ee.dept_id!=e.dept_id;
+
+select officer.fname,officer.lname,business.name,customer.city,account.avail_balance,product.name
+from officer
+natural join business
+natural join customer
+natural join account
+natural join product;
+-- erro por causa dos nomes iguais --
+
+select officer.fname,officer.lname,business.name,customer.city,account.avail_balance,product.name
+from officer
+natural join business
+natural join customer
+natural join account
+ join product
+ using(product_cd);
+
+
