@@ -13,11 +13,14 @@ import java.util.Map;
  */
 public class AgendaTelefonica {
  
-    private Map<String,Contato> listaContato= new HashMap<>();  
+    private Map<String,Contato> listaContato; 
     
-    
+    public AgendaTelefonica(){
+        this.listaContato=new HashMap<>();
+    }
     public void inserir(String n, String num)
     {
+        
         Contato contato= new Contato(n,num);
         listaContato.put(n, contato);
     }
@@ -27,7 +30,7 @@ public class AgendaTelefonica {
         Contato contato= listaContato.get(n);
         if (contato!=null)
         {
-            return contato.getNumero();
+            return "numero: "+contato.getNumero();
         }
         else
         {
@@ -36,7 +39,14 @@ public class AgendaTelefonica {
     }
     
     public void remover(String n){
-        listaContato.remove(n);
+        if(this.listaContato.remove(n)!=null)
+        {
+            System.out.println("Contato removido!");
+        }
+        else
+        {
+            System.out.println("Não encontrdo!");
+        }
     }
     
     public int tamanho(){
@@ -44,9 +54,15 @@ public class AgendaTelefonica {
     }
     
     public void imprimir(){
+        if(this.listaContato.isEmpty())
+                {
+                   System.out.println("Vazio.");
+                }
+        else{
         for(Contato contato: listaContato.values())
         {
            System.out.println("Contato: "+ contato);
         }
+                }
     }
 }

@@ -32,6 +32,11 @@ public class Contato {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    @Override
+    public String toString() {
+        return "Contato{" + "numero=" + numero + ", nome=" + nome + '}';
+    }
     
     
 }
