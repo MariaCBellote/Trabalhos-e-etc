@@ -24,7 +24,15 @@ public class Evento {
     {
         
         Participante p=new Participante(nome,email);
-        
+        //set não permite repetição de elementos
+        /* boolean retorno=parts.add(p);
+        if(retorno==true){
+         System.out.println("Participante cadastrado: "+ p.getNome()+"|"+p.getEmail());
+        }
+        else{
+        System.out.println("Esse participante já está cadastrado!");
+        }
+        */
         
             if(parts.contains(p))
             {
@@ -55,5 +63,17 @@ public class Evento {
             }
         }
     }
+    /*
+    public void remover(Partiipante p)
+    {
+    boolean retorno= parts.remove(p);
+     if(retorno==true){
+         System.out.println("Participante removido;
+        }
+        else{
+        System.out.println("Não foi possível remover");
+        }
+    
+    */
     
 }
