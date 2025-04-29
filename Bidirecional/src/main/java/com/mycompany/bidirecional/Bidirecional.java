@@ -15,7 +15,7 @@ public class Bidirecional {
         Aluno a=new Aluno("Julia");
         Aluno b=new Aluno("Romildo");
         Cursos c=new Cursos("Computaria");
-        a.setProf(p);
+        
         p.addaluno(a);
         p.addaluno(b);
         c.addstu(b);

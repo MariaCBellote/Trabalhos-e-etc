@@ -13,21 +13,30 @@ import java.util.List;
  */
 public class Cursos {
     private String nome;
-    private List<Aluno>stus;
+    private List<Aluno>stus=new ArrayList<>();;
 
     public Cursos(String nome) {
         this.nome = nome;
-        this.stus=new ArrayList<>();
+       
         
     }
     public void addstu(Aluno stu)
     {
         stus.add(stu);
+        if(stu.getCurso().contains(this))
+        {
+            System.out.print("Já está contido");
+        }
+        else{
+        stu.setCurso((List<Cursos>) this);
+        }
     }
 
     @Override
     public String toString() {
         return "Cursos{" + "nome=" + nome + ", stus=" + stus + '}';
     }
+
+    
     
 }
