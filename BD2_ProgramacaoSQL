@@ -6,3 +6,36 @@ SET AVAIL_BALANCE=AVAIL_BALANCE +AVAIL_BALANCE *0.01*TAXA;
 END $$
 DELIMITER ;
 
+DELIMITER $$
+CREATE FUNCTION
+cambio (id INT, taxa DECIMAL(5, 2))
+RETURNS DECIMAL(10, 2)
+DETERMINISTIC
+BEGIN
+DECLARE value DECIMAL(10, 2);
+SELECT SUM(avail_balance) INTO value
+FROM account
+WHERE cust_id = client_id ;
+RETURN (taxa * value) ;
+END $$
+DELIMITER ;
+
+ DELIMITER $$
+CREATE FUNCTION
+contaTipo (credit DECIMAL(10, 2))
+RETURNS varchar(20)
+DETERMINISTIC
+BEGIN
+DECLARE nivel varchar(20);
+
+if credit>35000 then
+set level='PLATINUM';
+elseif( credit<=35000 and credit>=10000) then
+set level='GOLD';
+elseif credit< 10000 then
+set level= 'SILVER';
+end if;
+return level;
+END $$
+DELIMITER ;
+
