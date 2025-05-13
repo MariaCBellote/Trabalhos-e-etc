@@ -39,3 +39,30 @@ return level;
 END $$
 DELIMITER ;
 
+DELIMITER $$
+CREATE TRIGGER t1 AFTER INSERT ON transaction FOR EACH ROW
+BEGIN
+UPDATE account SET
+avail_balance = IF(NEW.txn_type_cd = 'DBT', avail_balance -
+(NEW.amount+new.amount*0.01), avail_balance + NEW.amount)
+WHERE account_id = NEW.account_id;
+END $$
+DELIMITER ;
+
+INSERT INTO transaction(txn_id ,txn_date, account_id, txn_type_cd, amount, funds_avail_date)
+VALUES (null,now(),2, 'DBT', 100, now());
+
+SELECT * FROM bank.account;
+
+DELIMITER $$
+create trigger t2 AFTER INSERT ON customer FOR EACH ROW
+begin 
+insert into account(cust_id,product_cd,open_date)
+values(new.cust_id,'CHK',now());
+
+end $$
+delimiter ;
+
+INSERT INTO customer(fed_id) values('04-55555555');
+
+
