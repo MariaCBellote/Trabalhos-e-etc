@@ -1,0 +1,39 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.clinteconta;
+
+/**
+ *
+ * @author alunolab08
+ */
+public class ContaPoupanca extends Conta{
+    
+    public ContaPoupanca(double saldo) {
+        super(saldo);
+    }
+
+     @Override
+    public void sacar(double i)
+    {
+       if(i<=getSaldo()){
+       setSaldo(getSaldo()-(i+15));
+        }
+        else{
+            System.out.println("Saldo insuficiente!");
+        } 
+    }    
+    @Override
+     public void aplicarRendimento(){
+        setSaldo(getSaldo()*1.005);
+    }
+    @Override
+    public String toString() {
+        return "Poupanca";
+    }
+    
+    
+    
+    
+}
