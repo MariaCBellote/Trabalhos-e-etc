@@ -66,3 +66,34 @@ delimiter ;
 INSERT INTO customer(fed_id) values('04-55555555');
 
 
+use bank;
+drop trigger t4;
+delimiter $$
+CREATE TRIGGER t4 before INSERT ON employee FOR EACH ROW
+BEGIN
+IF(new.superior_emp_id is null)
+then set
+new.superior_emp_id= (select emp_id from employee
+order by start_date
+limit 1);
+end if;
+END$$
+delimiter ;
+
+INSERT INTO employee(fname, lname , start_date)
+VALUES ('Peter', 'Parker', '1999-12-31');
+
+delimiter $$
+create event rend_ev5 on schedule at '2025-05-20 9:08:00'
+do
+begin
+update account
+set 
+avail_balance=(avail_balance*1.01), last_activity_date=date(now())
+where product_cd='SAV';
+end$$
+delimiter ;
+
+
+
+
