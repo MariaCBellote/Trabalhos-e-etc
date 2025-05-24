@@ -1,0 +1,6 @@
+com\mycompany\sistemalivestream\Plataforma.class
+com\mycompany\sistemalivestream\Transmissao.class
+com\mycompany\sistemalivestream\Streamer.class
+com\mycompany\sistemalivestream\Espectador.class
+com\mycompany\sistemalivestream\SistemaLiveStream.class
+com\mycompany\sistemalivestream\Usuario.class
